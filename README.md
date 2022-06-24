@@ -1,7 +1,15 @@
-# Intro
+# LeetCode Helpers ![unit test](https://github.com/adalab-cn/leetcode-helpers/actions/workflows/unit-test.yml/badge.svg)
 
-Inspired by https://github.com/helloShen/leetcode-helper and https://github.com/starforever/leetcode/tree/master/util
+A library to help one crack leetcode problems in Java.
 
-# Notes
+## Credits
 
-1. 也许不应该直接将`assertEquals`在`SolutionRunner`中暴露给用户，因为有些LeetCode题目可能存在多个返回值不同的正确答案，例如#450，只要删除后仍然保持搜索二叉树的性质，怎么删除都无所谓。将`assertEquals`暴露出来，有可能给用户造成一种错误的印象——`assertEquals`等价于检测你的实现是否正确。对于#450这种存在多个正确返回值的题目，
+This project is inspired by:
+
+1. [leetcode-helper](https://github.com/helloShen/leetcode-helper)
+2. [leetcode](https://github.com/starforever/leetcode)
+
+# TODO
+
+1. Should `SolutionRunner` expose assertion APIs? Problems like 450 may have more than one correct outputs,
+  so assertion failures does not necessarily mean wrong solution. Assertion APIs could be misused here. 
