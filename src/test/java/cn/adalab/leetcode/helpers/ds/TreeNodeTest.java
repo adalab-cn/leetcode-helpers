@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TreeNodeTest {
+class TreeNodeTest {
     @Test
-    public void toStringTest() {
-        TreeNode root = new TreeNode(5);
+    void toStringTest() {
+        var root = new TreeNode(5);
         root.left = new TreeNode(4);
         root.left.left = new TreeNode(2);
         root.right = new TreeNode(6);

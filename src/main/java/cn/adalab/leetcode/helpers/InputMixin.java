@@ -4,13 +4,13 @@ import cn.adalab.leetcode.helpers.ds.ListNode;
 import cn.adalab.leetcode.helpers.ds.TreeNode;
 
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-interface InputHelper {
+interface InputMixin {
     /**
      * #57
      */
@@ -29,7 +29,7 @@ interface InputHelper {
      */
     default int[][] toIntArray2D(String input) {
         String[] strings = input.trim().replaceAll("(^\\[)|(]$)", "").split("\\s*,\\s*(?=\\[)");
-        return Arrays.stream(strings).map(this::toIntArray).toArray(int[][]::new);
+        return Stream.of(strings).map(this::toIntArray).toArray(int[][]::new);
     }
 
     /**
@@ -57,7 +57,7 @@ interface InputHelper {
         if (strNodes[0].isEmpty()) {
             return null;
         } else {
-            List<TreeNode> nodes = Arrays.stream(strNodes)
+            List<TreeNode> nodes = Stream.of(strNodes)
                     .map(str -> {
                         if (str.equals("null")) {
                             return null;
@@ -101,5 +101,27 @@ interface InputHelper {
             }
             return nodes.get(0);
         }
+    }
+
+    /**
+     * #118
+     */
+    default List<List<Integer>> toNestedIntegerList(String input) {
+        String[] strings = input.trim().replaceAll("(^\\[)|(]$)", "").split("\\s*,\\s*(?=\\[)");
+        return Stream.of(strings)
+                .map(this::toIntArray)
+                .map(IntStream::of)
+                .map(stream -> stream.boxed().collect(Collectors.toList()))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * #524
+     */
+    default List<String> toStringList(String input) {
+        String[] strings = input.trim().replaceAll("(^\\[)|(]$)", "").split("\\s*,\\s*");
+        return Stream.of(strings)
+                .map(s -> s.replaceAll("\"", ""))
+                .collect(Collectors.toList());
     }
 }

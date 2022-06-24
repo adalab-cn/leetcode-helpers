@@ -3,10 +3,7 @@ package cn.adalab.leetcode.helpers.ds;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 该类是LeetCode上#138、#116题目中的Node类进行合并得到的类
- */
-class Node {
+public class Node {
     public int val;
     public Node left;
     public Node right;
@@ -18,7 +15,7 @@ class Node {
     }
 
     /**
-     * 用于#138、#116、#133的构造函数
+     * #138、#116、#133
      */
     public Node(int val) {
         this.val = val;
@@ -28,7 +25,7 @@ class Node {
     }
 
     /**
-     * 用于#138的构造函数
+     * #138
      */
     public Node(int val, Node left, Node right, Node next) {
         this.val = val;
@@ -38,7 +35,7 @@ class Node {
     }
 
     /**
-     * LeetCode上剑指Offer 36的构造函数
+     * 剑指Offer 36
      */
     public Node(int val, Node left, Node right) {
         this.val = val;
@@ -47,7 +44,7 @@ class Node {
     }
 
     /**
-     * 用于#133的构造函数
+     * #133
      */
     public Node(int val, List<Node> neighbors) {
         this.val = val;

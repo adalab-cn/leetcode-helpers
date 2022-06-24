@@ -5,7 +5,7 @@ import cn.adalab.leetcode.helpers.ds.TreeNode;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-interface Asserts {
+interface AssertMixin {
     default void assertSameTree(TreeNode root1, TreeNode root2) {
         assertTrue(isSameTree(root1, root2));
     }

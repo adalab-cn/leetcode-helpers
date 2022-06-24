@@ -3,9 +3,6 @@ package cn.adalab.leetcode.helpers.ds;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * LeetCode #19
- */
 public class ListNode {
     public int val;
     public ListNode next;
@@ -13,6 +10,9 @@ public class ListNode {
     public ListNode() {
     }
 
+    /**
+     * #19
+     */
     public ListNode(int val) {
         this.val = val;
     }

@@ -11,14 +11,14 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.8.0</version>
-            <scope>compile</scope>
+            <version>5.8.2</version>
         </dependency>
     </dependencies>
 
@@ -35,6 +35,7 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <argLine>
+                        --add-opens leetcode.helpers/cn.adalab.leetcode.helpers=org.junit.platform.commons
                         --add-opens leetcode.helpers/cn.adalab.leetcode.helpers.ds=org.junit.platform.commons
                         --add-exports org.junit.platform.commons/org.junit.platform.commons.util=ALL-UNNAMED
                         --add-exports org.junit.platform.commons/org.junit.platform.commons.logging=ALL-UNNAMED

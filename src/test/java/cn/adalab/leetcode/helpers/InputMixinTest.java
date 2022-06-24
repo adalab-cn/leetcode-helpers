@@ -4,19 +4,21 @@ import cn.adalab.leetcode.helpers.ds.ListNode;
 import cn.adalab.leetcode.helpers.ds.TreeNode;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class InputHelperTest {
+class InputMixinTest {
 
-    InputHelper inputHelper = new InputHelper() {
+    InputMixin inputMixin = new InputMixin() {
     };
 
     /**
      * #19 sample 1
      */
     @Test
-    public void linkedListHead1() {
-        ListNode head = inputHelper.toLinkedList("[1,2,3,4,5]");
+    void linkedListHead1() {
+        var head = inputMixin.toLinkedList("[1,2,3,4,5]");
         assertNotNull(head);
         assertEquals(1, head.val);
         assertEquals(2, head.next.val);
@@ -27,8 +29,8 @@ public class InputHelperTest {
     }
 
     @Test
-    public void linkedListHead2() {
-        ListNode head = inputHelper.toLinkedList("[]");
+    void linkedListHead2() {
+        var head = inputMixin.toLinkedList("[]");
         assertNull(head);
     }
 
@@ -36,8 +38,8 @@ public class InputHelperTest {
      * #94 sample 1
      */
     @Test
-    public void binaryTreeRoot1() {
-        TreeNode root = inputHelper.toBinaryTree("[1,null,2,3]");
+    void binaryTreeRoot1() {
+        var root = inputMixin.toBinaryTree("[1,null,2,3]");
         assertEquals(1, root.val);
         assertNull(root.left);
         assertEquals(2, root.right.val);
@@ -49,8 +51,8 @@ public class InputHelperTest {
      * #94 sample 2
      */
     @Test
-    public void binaryTreeRoot2() {
-        TreeNode root = inputHelper.toBinaryTree("[]");
+    void binaryTreeRoot2() {
+        var root = inputMixin.toBinaryTree("[]");
         assertNull(root);
     }
 
@@ -58,8 +60,8 @@ public class InputHelperTest {
      * #94 sample 3
      */
     @Test
-    public void binaryTreeRoot3() {
-        TreeNode root = inputHelper.toBinaryTree("[1]");
+    void binaryTreeRoot3() {
+        var root = inputMixin.toBinaryTree("[1]");
         assertEquals(1, root.val);
         assertNull(root.left);
         assertNull(root.right);
@@ -69,8 +71,8 @@ public class InputHelperTest {
      * #94 sample 4
      */
     @Test
-    public void binaryTreeRoot4() {
-        TreeNode root = inputHelper.toBinaryTree("[1,2]");
+    void binaryTreeRoot4() {
+        var root = inputMixin.toBinaryTree("[1,2]");
         assertEquals(1, root.val);
         assertEquals(2, root.left.val);
         assertNull(root.left.left);
@@ -82,8 +84,8 @@ public class InputHelperTest {
      * #94 sample 5
      */
     @Test
-    public void binaryTreeRoot5() {
-        TreeNode root = inputHelper.toBinaryTree("[1,null,2]");
+    void binaryTreeRoot5() {
+        var root = inputMixin.toBinaryTree("[1,null,2]");
         assertEquals(1, root.val);
         assertNull(root.left);
         assertEquals(2, root.right.val);
@@ -92,8 +94,34 @@ public class InputHelperTest {
     }
 
     @Test
-    public void intArray2D() {
-        int[][] array2D = inputHelper.toIntArray2D("[[1,2],[3,4]]");
+    void intArray2D() {
+        var array2D = inputMixin.toIntArray2D("[[1,2],[3,4]]");
         assertEquals(1, array2D[0][0]);
     }
+
+    /**
+     * #118 sample 1 output
+     */
+    @Test
+    void nestedIntegerList() {
+        var result = inputMixin.toNestedIntegerList("[[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]");
+        assertEquals(5, result.size());
+        assertEquals(List.of(1), result.get(0));
+        assertEquals(List.of(1,1), result.get(1));
+        assertEquals(List.of(1,2,1), result.get(2));
+        assertEquals(List.of(1,3,3,1), result.get(3));
+        assertEquals(List.of(1,4,6,4,1), result.get(4));
+    }
+
+    /**
+     * #524
+     */
+    @Test
+    void stringList() {
+        var result = inputMixin.toStringList("[\"ale\",\"apple\",\"monkey\",\"plea\"]");
+        assertEquals(4, result.size());
+        assertEquals("ale", result.get(0));
+        assertEquals("monkey", result.get(2));
+    }
+
 }

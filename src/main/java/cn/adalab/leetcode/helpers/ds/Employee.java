@@ -3,10 +3,10 @@ package cn.adalab.leetcode.helpers.ds;
 import java.util.List;
 
 /**
- * LeetCode #690
+ * #690
  */
 public class Employee {
     public int id;
     public int importance;
     public List<Integer> subordinates;
-};
+}
