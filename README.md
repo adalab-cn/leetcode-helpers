@@ -16,8 +16,7 @@ public class P21 extends SolutionRunner {
    }
 
    /**
-    * Use built-in assertions like {@link cn.adalab.leetcode.helpers.AssertMixin#assertSameList(ListNode, ListNode)} and 
-    * parsers like {@link cn.adalab.leetcode.helpers.InputMixin#toLinkedList(String)} to test your code if needed.
+    * If needed, test your code with inherited methods like {@code assertSameList} and {@code toLinkedList}.
     */
    @Override
    public void run() {
