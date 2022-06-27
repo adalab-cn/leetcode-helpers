@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
  * your code.
  */
 public abstract class SolutionRunner extends Assertions implements AssertMixin, InputMixin {
-  public abstract void run();
+  public void run() {}
 
   /**
    * Program entrance. Reflectively found the real subclass and invoke its {@code run} method.
