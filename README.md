@@ -7,19 +7,27 @@ A library to help one crack leetcode problems in Java.
 Extend `SolutionRunner`, write your solution, and test your code.
 
 ```java
-public class P21 extends SolutionRunner {
-  public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-    // your solution code
-  }
+import cn.adalab.leetcode.helpers.ds.ListNode;
 
-  @Override
-  public void run() {
-    ListNode head1 = toLinkedList("[1,2,4]");
-    ListNode head2 = toLinkedList("[1,3,4]");
-    ListNode merged = mergeTwoLists(head1, head2);
-    System.out.println(merged);
-    assertSameList(toLinkedList("[1,1,2,3,4,4]"), merged);
-  }
+public class P21 extends SolutionRunner {
+
+   public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+      // your solution code
+   }
+
+   /**
+    * Use built-in assertions like {@link cn.adalab.leetcode.helpers.AssertMixin#assertSameList(ListNode, ListNode)} and 
+    * parsers like {@link cn.adalab.leetcode.helpers.InputMixin#toLinkedList(String)} to test your code if needed.
+    */
+   @Override
+   public void run() {
+      ListNode head1 = toLinkedList("[1,2,4]");
+      ListNode head2 = toLinkedList("[1,3,4]");
+      ListNode merged = mergeTwoLists(head1, head2);
+      System.out.println(merged);
+      assertSameList(toLinkedList("[1,1,2,3,4,4]"), merged);
+   }
+
 }
 ```
 
