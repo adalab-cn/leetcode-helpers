@@ -2,5 +2,7 @@ version: 2
 updates:
   - package-ecosystem: "maven"
     directory: "/"
+    ignore:
+      - dependency-name: org.apache.maven:*
     schedule:
       interval: "daily"

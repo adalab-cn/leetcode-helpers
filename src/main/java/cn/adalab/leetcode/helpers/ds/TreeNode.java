@@ -1,8 +1,13 @@
 package cn.adalab.leetcode.helpers.ds;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * Combination of various {@code TreeNode} classes provided in leetcode, e.g. #94, etc.
+ */
 public class TreeNode {
   public int val;
   public TreeNode left;
@@ -12,12 +17,15 @@ public class TreeNode {
   }
 
   /**
-   * #94
+   * #94.
    */
   public TreeNode(int val) {
     this.val = val;
   }
 
+  /**
+   * #94.
+   */
   public TreeNode(int val, TreeNode left, TreeNode right) {
     this.val = val;
     this.left = left;
@@ -26,18 +34,21 @@ public class TreeNode {
 
   /**
    * Convert to level-order traversal string.
-   * <p>
-   * Example:
+   *
+   * <p>Example:
    * <pre>
-   *      1────────┐
-   *            ┌──2
-   *         ┌──3
-   *         4
+   *      1──────────┐
+   *              ┌──2
+   *           ┌──3
+   *           4
    * </pre>
    * is converted to {@code [1,null,2,3,null,4]}
    *
-   * Algorithm:
-   * 1.
+   * <p>Algorithm:
+   * 1. add a null sentinel to each leaf
+   * 2. level-order traversal including both nulls and valid values
+   * 3. remove trailing nulls from the traversal output
+   *
    * @return converted string
    */
   @Override
@@ -60,6 +71,8 @@ public class TreeNode {
     while (list.get(rightIndex - 1) == null) {
       rightIndex--;
     }
-    return "[" + list.subList(0, rightIndex).stream().map(String::valueOf).collect(Collectors.joining(",")) + "]";
+    return "[" + list.subList(0, rightIndex).stream()
+        .map(String::valueOf)
+        .collect(Collectors.joining(",")) + "]";
   }
 }
