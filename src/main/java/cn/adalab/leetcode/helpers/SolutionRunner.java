@@ -20,7 +20,11 @@ public abstract class SolutionRunner extends Assertions implements AssertMixin, 
     // strip the module part if any
     var clazzName = command.substring(command.lastIndexOf('/') + 1);
     var clazz = Class.forName(clazzName);
-    SolutionRunner solutionRunner = (SolutionRunner) clazz.getDeclaredConstructor().newInstance();
+
+    // in case the child class is not public
+    var ctor = clazz.getDeclaredConstructor();
+    ctor.setAccessible(true);
+    SolutionRunner solutionRunner = (SolutionRunner) ctor.newInstance();
     solutionRunner.run();
   }
 }
