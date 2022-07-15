@@ -64,7 +64,7 @@ public class Pair<K, V> implements Serializable {
   }
 
   /**
-   * Creates a new pair
+   * Creates a new pair.
    *
    * @param key The key for this pair
    * @param value The value to use for this pair
@@ -118,10 +118,15 @@ public class Pair<K, V> implements Serializable {
    */
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
+    if (this == o) {
+      return true;
+    }
     if (o instanceof Pair) {
-      @SuppressWarnings("rawtypes") Pair pair = (Pair) o;
-      if (!Objects.equals(key, pair.key)) return false;
+      @SuppressWarnings("rawtypes")
+      Pair pair = (Pair) o;
+      if (!Objects.equals(key, pair.key)) {
+        return false;
+      }
       return Objects.equals(value, pair.value);
     }
     return false;

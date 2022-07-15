@@ -68,6 +68,15 @@ interface InputMixin {
     }
   }
 
+  default char[][] toCharArray2D(String input) {
+    String[] strings = input.trim().replaceAll("(^\\[)|(]$)", "").split("\\s*,\\s*(?=\\[)");
+    return Stream.of(strings).map(InputMixin::toCharArray).toArray(char[][]::new);
+  }
+
+  private static char[] toCharArray(String input) {
+    return input.trim().replaceAll("[\\[\\]\"]", "").toCharArray();
+  }
+
   /**
    * Construct a binary tree based on the level order traversal output.
    *
