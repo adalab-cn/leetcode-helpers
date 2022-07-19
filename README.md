@@ -16,15 +16,15 @@ public class P21 extends SolutionRunner {
    }
 
    /**
-    * If needed, test your code with inherited methods like {@code assertSameList} and {@code toLinkedList}.
+    * If needed, test your code with inherited methods like {@code assertSameList} and {@code toListNode}.
     */
    @Override
    public void run() {
-      ListNode head1 = toLinkedList("[1,2,4]");
-      ListNode head2 = toLinkedList("[1,3,4]");
+      ListNode head1 = toListNode("[1,2,4]");
+      ListNode head2 = toListNode("[1,3,4]");
       ListNode merged = mergeTwoLists(head1, head2);
       System.out.println(merged);
-      assertSameList(toLinkedList("[1,1,2,3,4,4]"), merged);
+      assertSameList(toListNode("[1,1,2,3,4,4]"), merged);
    }
 
 }

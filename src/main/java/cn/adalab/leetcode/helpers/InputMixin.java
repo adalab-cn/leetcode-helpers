@@ -29,7 +29,7 @@ interface InputMixin {
   }
 
   /** #19. */
-  default ListNode toLinkedList(String input) {
+  default ListNode toListNode(String input) {
     String[] strNodes = input.trim().replaceAll("[\\[\\]]", "").split("\\s*,\\s*");
     if (strNodes[0].isEmpty()) {
       return null;
@@ -47,7 +47,7 @@ interface InputMixin {
   }
 
   /** #94. Eg. [1,null,2,3] */
-  default TreeNode toBinaryTree(String input) {
+  default TreeNode toTreeNode(String input) {
     String[] strNodes = input.trim().replaceAll("[\\[\\]]", "").split("\\s*,\\s*");
     if (strNodes[0].isEmpty()) {
       return null;
@@ -111,7 +111,7 @@ interface InputMixin {
   }
 
   /** #118. */
-  default List<List<Integer>> toNestedIntegerList(String input) {
+  default List<List<Integer>> toListListInteger(String input) {
     String[] strings = input.trim().replaceAll("(^\\[)|(]$)", "").split("\\s*,\\s*(?=\\[)");
     return Stream.of(strings)
         .map(this::toIntArray)
@@ -121,7 +121,7 @@ interface InputMixin {
   }
 
   /** #524. */
-  default List<String> toStringList(String input) {
+  default List<String> toListString(String input) {
     String[] strings = input.trim().replaceAll("(^\\[)|(]$)", "").split("\\s*,\\s*");
     return Stream.of(strings).map(s -> s.replaceAll("\"", "")).collect(Collectors.toList());
   }
