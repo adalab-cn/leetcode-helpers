@@ -113,4 +113,26 @@ class InputMixinTest {
     assertEquals(1, result[0].length);
     assertEquals('X', result[0][0]);
   }
+
+  /** #133 */
+  @Test
+  void graphNode() {
+    var node1 = inputMixin.toNode("[[2,4],[1,3],[2,4],[1,3]]");
+    assertEquals(1, node1.val);
+    assertEquals(2, node1.neighbors.size());
+    var node2 = node1.neighbors.get(0);
+    assertEquals(2, node2.val);
+    assertEquals(2, node2.neighbors.size());
+    assertSame(node1, node2.neighbors.get(0));
+    var node3 = node2.neighbors.get(1);
+    assertEquals(3, node3.val);
+    assertEquals(2, node3.neighbors.size());
+    assertSame(node2, node3.neighbors.get(0));
+    var node4 = node1.neighbors.get(1);
+    assertEquals(4, node4.val);
+    assertEquals(2, node4.neighbors.size());
+    assertSame(node4, node3.neighbors.get(1));
+    assertSame(node1, node4.neighbors.get(0));
+    assertSame(node3, node4.neighbors.get(1));
+  }
 }

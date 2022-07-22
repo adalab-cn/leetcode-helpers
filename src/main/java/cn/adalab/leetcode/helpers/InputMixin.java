@@ -1,6 +1,7 @@
 package cn.adalab.leetcode.helpers;
 
 import cn.adalab.leetcode.helpers.ds.ListNode;
+import cn.adalab.leetcode.helpers.ds.Node;
 import cn.adalab.leetcode.helpers.ds.TreeNode;
 
 import java.util.ArrayDeque;
@@ -124,5 +125,23 @@ interface InputMixin {
   default List<String> toListString(String input) {
     String[] strings = input.trim().replaceAll("(^\\[)|(]$)", "").split("\\s*,\\s*");
     return Stream.of(strings).map(s -> s.replaceAll("\"", "")).collect(Collectors.toList());
+  }
+
+  /**
+   * Construct a graph and return the first node (vertex) as in #133.
+   *
+   * @param input the string input
+   * @return the node represented by the first subarray in the in 2D array input
+   */
+  default Node toNode(String input) {
+    var edges = toIntArray2D(input);
+    var n = edges.length;
+    var nodes = IntStream.rangeClosed(1, n).mapToObj(Node::new).toArray(Node[]::new);
+    for (var i = 0; i < n; i++) {
+      for (var neighbor : edges[i]) {
+        nodes[i].neighbors.add(nodes[neighbor - 1]);
+      }
+    }
+    return nodes[0];
   }
 }
