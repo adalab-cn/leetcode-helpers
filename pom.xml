@@ -6,7 +6,26 @@
 
     <groupId>cn.adalab</groupId>
     <artifactId>leetcode-helpers</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
+
+    <name>Adalab LeetCode Helpers</name>
+    <description>A helper Java library to ease the development of LeetCode problems</description>
+    <url>https://github.com/adalab-cn/leetcode-helpers</url>
+    <developers>
+        <developer>
+            <name>Wei Lin</name>
+            <email>wl@adalab.cn</email>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/adalab-cn/leetcode-helpers</url>
+    </scm>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
